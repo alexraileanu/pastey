@@ -1,149 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>Home | Pastey</title>
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>Home | Pastey</title>
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-  <link rel="stylesheet" href="/static/css/mdb.min.css" />
-  <link rel="stylesheet" href="/static/css/style.css" />
-  <link rel="stylesheet" href="/static/themes/{{ active_theme }}.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"/>
+    <link rel="stylesheet" href="/static/css/mdb.min.css"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
+    <link rel="stylesheet" href="/static/themes/{{ active_theme }}.css"/>
 
-  <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico"/>
-</head>
-<body>
-  <header>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top bg-white pastey-navbar">
-      <div class="container-fluid">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico"/>
+  </head>
+  <body>
+    <header>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg fixed-top bg-white pastey-navbar">
+        <div class="container-fluid">
 
-        <!-- Toggle button -->
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-mdb-toggle="collapse"
-          data-mdb-target="#pasteyNavbarContainer"
-          aria-controls="pasteyNavbarContainer"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <i class="fas fa-bars pastey-navbar-toggler"></i>
-        </button>
+          <!-- Toggle button -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-mdb-toggle="collapse"
+            data-mdb-target="#pasteyNavbarContainer"
+            aria-controls="pasteyNavbarContainer"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-bars pastey-navbar-toggler"></i>
+          </button>
 
-        <!-- Navbar logo -->
-        <a class="navbar-brand" href="/">
-          <div class="pastey-logo" style="margin-top: -3px;"></div>
-        </a>
+          <!-- Navbar logo -->
+          <a class="navbar-brand" href="/">
+            <div class="pastey-logo" style="margin-top: -3px;"></div>
+          </a>
 
-        <div class="collapse navbar-collapse" id="pasteyNavbarContainer">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link pastey-link" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link pastey-link" href="/new">New Paste</a>
-            </li>
-            {% if whitelisted %}
-            <li class="nav-item">
-              <a class="nav-link pastey-link" href="/config">Config</a>
-            </li>
-            {% endif %}
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle pastey-link"
-                href="#"
-                id="theme"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Theme
-              </a>
-              <!-- Theme dropdown -->
-              <ul class="dropdown-menu pastey-dropdown" aria-labelledby="navbarDropdown">
-                {% for theme in themes %}
-                <li><a class="dropdown-item pastey-dropdown-item" href="#" onclick="setTheme('{{ theme }}');">{{ theme }}</a></li>
-                {% endfor %}
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item pastey-dropdown-item" href="#" onclick="resetTheme();">Reset Theme</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+          <div class="collapse navbar-collapse" id="pasteyNavbarContainer">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item active">
+                <a class="nav-link pastey-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link pastey-link" href="/new">New Paste</a>
+              </li>
+            </ul>
 
-          <ul class="navbar-nav d-flex flex-row">
-            <li class="nav-item me-3 me-lg-0">
-              <a class="nav-link pastey-link" href="https://github.com/Cesura/pastey" rel="nofollow" target="_blank">
-                <i class="fab fa-github"></i>
-              </a>
-            </li>
-          </ul>
+            <ul class="navbar-nav d-flex flex-row">
+              <li class="nav-item me-3 me-lg-0">
+                <a class="nav-link pastey-link" href="https://github.com/Cesura/pastey" rel="nofollow" target="_blank">
+                  <i class="fab fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
-    <!-- Navbar -->
+      </nav>
+      <!-- Navbar -->
 
-    <!-- Jumbotron -->
-    <div id="intro" class="p-5 text-center pastey-header">
-      <h1 class="mb-3 h2">Welcome to Pastey</h1>
-      <p class="mb-3">A lightweight, self-hosted paste platform</p><br />
-      <div class="row justify-content-md-center">
-        <div class="col-md-2">
-          <a class="btn btn-primary text-nowrap m-2" href="/new" role="button" rel="nofollow"><i class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;New Paste</a>
-        </div>
+      <!-- Jumbotron -->
+      <div id="intro" class="p-5 text-center pastey-header">
+        <h1 class="mb-3 h2">Welcome to Pastey</h1>
+        <p class="mb-3">A lightweight, self-hosted paste platform</p><br/>
+        <div class="row justify-content-md-center">
+          <div class="col-md-2">
+            <a class="btn btn-primary text-nowrap m-2" href="/new" role="button" rel="nofollow"><i
+              class="fas fa-plus"></i>&nbsp;&nbsp;&nbsp;New Paste</a>
+          </div>
 
-        {% if show_cli_button %}
-        <div class="col-md-2">
-          <a class="btn btn-success text-nowrap m-2" href="{{ script_url }}" role="button"
-            data-mdb-toggle="tooltip"
-            title="Pastey provides a script that can be used to pipe output directly from the command line"><i class="fas fa-terminal"></i>&nbsp;&nbsp;&nbsp;Use CLI</a>
-        </div>
-        {% endif %}
-      </div>      
-    </div>
-    <!-- Jumbotron -->
-  </header>
-
-  <!--Main layout-->
-  <main class="my-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <section>
-            <!-- Paste -->
-            {% for paste in pastes %}
-            <div class="row">
-              <div class="col-md-4 mb-4">
-                <div class="bg-image hover-overlay shadow-1-strong rounded ripple pastey-preview-image" data-mdb-ripple-color="light">
-                  <img src="/static/img/language/{{ active_theme }}/{{ paste.icon }}.png" onerror="this.src='/static/img/language/{{ active_theme }}/plaintext.png'" class="img-fluid" />
-                  <a href="/view/{{ paste.unique_id }}">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                  </a>
-                </div>
-              </div>
-
-              <div class="col-md-8 mb-4">
-                {% if whitelisted %}
-                <a class="btn btn-danger m-2" href="/delete/{{ paste.unique_id }}" role="button" style="float:right;"><i class="fas fa-trash"></i>&nbsp;&nbsp;&nbsp;Delete</a>
-                {% endif %}
-
-                <h5>{{ paste.title }}</h5>
-                <pre style="overflow-x:hidden;">{{ paste.content }}</pre>
-              </div>
+          {% if show_cli_button %}
+            <div class="col-md-2">
+              <a class="btn btn-success text-nowrap m-2" href="{{ script_url }}" role="button"
+                 data-mdb-toggle="tooltip"
+                 title="Pastey provides a script that can be used to pipe output directly from the command line"><i
+                class="fas fa-terminal"></i>&nbsp;&nbsp;&nbsp;Use CLI</a>
             </div>
-            {% endfor %}
-          </section>
+          {% endif %}
         </div>
       </div>
-    </div>
-  </main>
+      <!-- Jumbotron -->
+    </header>
 
-  <!--JS-->
-  <script type="text/javascript" src="/static/js/mdb.min.js"></script>
-  <script type="text/javascript" src="/static/js/common.js"></script>
-</body>
+    <!--JS-->
+    <script type="text/javascript" src="/static/js/mdb.min.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+  </body>
 </html>

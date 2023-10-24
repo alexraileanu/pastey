@@ -46,33 +46,6 @@
             <li class="nav-item">
               <a class="nav-link pastey-link" href="/new" rel="nofollow">New Paste</a>
             </li>
-            {% if whitelisted %}
-            <li class="nav-item">
-              <a class="nav-link pastey-link" href="/config">Config</a>
-            </li>
-            {% endif %}
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle pastey-link"
-                href="#"
-                id="theme"
-                role="button"
-                data-mdb-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Theme
-              </a>
-              <!-- Theme dropdown -->
-              <ul class="dropdown-menu pastey-dropdown" aria-labelledby="navbarDropdown">
-                {% for theme in themes %}
-                <li><a class="dropdown-item pastey-dropdown-item" href="#" onclick="setTheme('{{ theme }}');">{{ theme }}</a></li>
-                {% endfor %}
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item pastey-dropdown-item" href="#" onclick="resetTheme();">Reset Theme</a>
-                </li>
-              </ul>
-            </li>
           </ul>
 
           <ul class="navbar-nav d-flex flex-row">

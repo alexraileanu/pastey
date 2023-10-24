@@ -1,5 +1,4 @@
 from __main__ import app
-from __main__ import guess    # Intentionally put on a separate line
 
 from . import config, common
 
@@ -85,7 +84,7 @@ def delete_paste(unique_id):
         remove(paste)
 
 # Create new paste
-def new_paste(title, content, source_ip, expires=0, single=False, encrypt=False, language="AUTO"):
+def new_paste(title, content, source_ip, expires=0, single=False, encrypt=False, language="Plaintext"):
     # this calculates the number of digits of a base64 number needed to be unlikely to have collisions
     id_len = int(math.ceil( 3*math.log(len(listdir(config.data_directory))+1)/math.log(256) + 1.5 ))
     unique_id = secrets.token_urlsafe(id_len if id_len >= config.minimum_url_length else config.minimum_url_length)
@@ -95,11 +94,6 @@ def new_paste(title, content, source_ip, expires=0, single=False, encrypt=False,
     while path.exists(output_file) or path.exists(output_file + ".expires"):
         unique_id = secrets.token_urlsafe(id_len if id_len >= config.minimum_url_length else config.minimum_url_length)
         output_file = config.data_directory + "/" + unique_id
-
-    # Attempt to guess programming language
-    if language == "AUTO":
-        guesses = guess.probabilities(content)
-        language = guesses[0][0] if guesses[0][1] > config.guess_threshold and guesses[0][0] not in config.ignore_guess else "Plaintext"
 
     # Check if encryption is necessary
     key = ""

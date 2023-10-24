@@ -34,7 +34,7 @@ recent_pastes = 10
 behind_proxy = False
 
 # Default theme to display to users
-default_theme = "Light"
+default_theme = "Dark"
 
 # Purge interval (in seconds) for checking expired pastes
 purge_interval = 3600
@@ -46,7 +46,7 @@ force_show_recent = False
 ignore_guess = ['TeX', 'SQL']
 
 # Show CLI button on home page
-show_cli_button = True
+show_cli_button = False
 
 # Include https in the generated links instead of http
 # This assumes you are behind something else doing the SSL
@@ -64,4 +64,4 @@ override_domain = ""
 # Minumum number of characters for generated URLs
 minimum_url_length = 5
 
-default_paste_expiry = -1
+default_paste_expiry = 6

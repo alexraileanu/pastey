@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.9.1
+FROM python:3.10-slim-bullseye
 WORKDIR /app
 COPY requirements.txt /app
 RUN mkdir -p /app/data && \

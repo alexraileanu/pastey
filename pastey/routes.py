@@ -3,7 +3,6 @@ from . import config, common, functions
 
 from flask import Flask, render_template, request, redirect, abort, make_response
 from urllib.parse import quote
-from datetime import datetime
 from os import environ
 import json
 from base64 import b64decode
@@ -50,20 +49,6 @@ def new():
         themes=loaded_themes,
         expiry_values=expiry_values,
         default_paste_expiry=config.default_paste_expiry)
-
-# Config page
-@app.route("/config")
-def config_page():
-    whitelisted = common.verify_whitelist(common.get_source_ip(request))
-    if not whitelisted:
-        abort(401)
-
-    return render_template("config.html",
-        config_items=loaded_config, 
-        script_url=common.build_url(request, "/pastey"),
-        whitelisted=whitelisted,
-        active_theme=common.set_theme(request),
-        themes=loaded_themes)
 
 # View paste page
 @app.route("/view/<unique_id>")
@@ -138,7 +123,7 @@ def paste():
         single = True if 'single' in request.form else False
         encrypt = True if 'encrypt' in request.form else False
         expiration = int(request.form['expiration']) if 'expiration' in request.form else -1
-        language = request.form['language'] if 'language' in request.form else "AUTO"
+        language = request.form['language'] if 'language' in request.form else "Plaintext"
 
         # Create paste
         unique_id, key = functions.new_paste(title, content, source_ip, expires=expiration, single=single, encrypt=encrypt, language=language)
@@ -203,7 +188,7 @@ def paste_json():
     single = paste['single'] if ('single' in paste and type(paste['single']) == bool) else False
     encrypt = paste['encrypt'] if ('encrypt' in paste and type(paste['encrypt']) == bool) else False
     expiration = paste['expiration'] if ('expiration' in paste and type(paste['expiration']) == int) else -1
-    language = paste['language'] if ('language' in paste and type(paste['language']) == str) else "AUTO"
+    language = paste['language'] if ('language' in paste and type(paste['language']) == str) else "Plaintext"
 
     # Create paste
     unique_id, key = functions.new_paste(title, content, source_ip, expires=expiration, single=single, encrypt=encrypt, language=language)

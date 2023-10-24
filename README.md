@@ -1,4 +1,6 @@
-![logo](https://i.imgur.com/W22RFJZ.png)
+# pastey
+
+**Forked from cesura/pastey**
 
 A lightweight, self-hosted paste platform
 
@@ -14,15 +16,15 @@ A lightweight, self-hosted paste platform
 * JSON API
 * Fully configurable via environment variables
 
-## Screenshots
-### Browser
-![home](https://i.imgur.com/P3BSv9d.png)
-![new](https://i.imgur.com/5YiQ3GB.png)
-![view](https://i.imgur.com/4bkPKNP.png)
-### Dark
-![dark](https://i.imgur.com/SXeSa5d.png)
-### CLI
-![screenshot5](https://i.imgur.com/kV7q1Zv.png)
+# Changes:
+
+- Removed config page
+- Removed recent pastes from the index page
+- Removed theme selector (default is Dark but can be changed in the config)
+- Removed guess code language. This had a dependency on tensorflow which took forever to build the docker image and imo
+not hugely important
+- Changed the base docker image to be python3.10-slim
+- Set default expiry of pastes to 6h
 
 # Installation
 ### Docker

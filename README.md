@@ -4,19 +4,18 @@
 
 A lightweight, self-hosted paste platform
 
-# Features
+## Features
 * Self-contained system without external database dependencies
 * Optional on-disk encryption
 * Optional single use pastes
 * Optional expiration date
 * QR code generation
-* Theme system
 * IP/network whitelisting and blocking
 * Endpoint rate limiting
 * JSON API
 * Fully configurable via environment variables
 
-# Changes:
+## Changes:
 
 - Removed config page
 - Removed recent pastes from the index page
@@ -26,7 +25,7 @@ not hugely important
 - Changed the base docker image to be python3.10-slim
 - Set default expiry of pastes to 6h
 
-# Installation
+## Installation
 ### Docker
 It is highly recommended that you use the official Docker image to run Pastey. To do so, simply run:
 ```
@@ -39,7 +38,7 @@ Pastey will then be accessible at *http://localhost:5000*
 ### docker-compose
 If you prefer to use docker-compose:
 ```
-$ wget https://raw.githubusercontent.com/arcscloud/pastey/main/docker-compose.yml && docker-compose up -d
+$ wget https://raw.githubusercontent.com/alexraileanu/pastey/main/docker-compose.yml && docker-compose up -d
 ```
 Note that this must be modified if you wish to use a local directory for storage, rather than a Docker volume.
 
@@ -48,12 +47,12 @@ Requirements:
 * Python 3.8
 
 ```
-$ git clone https://github.com/arcscloud/pastey.git && cd pastey && mkdir ./data
+$ git clone https://github.com/alexraileanu/pastey.git && cd pastey && mkdir ./data
 $ pip3 install -r requirements.txt
 $ python3 app.py 
 ```
 
-# Configuration
+## Configuration
 Here is a list of the available configuration options:
 | Environment Variable        | config.py Variable   | Description                                                                                                                                                                                      | Default Value                                                             |
 |-----------------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
